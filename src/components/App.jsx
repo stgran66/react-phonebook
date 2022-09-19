@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
+import { Filter } from './Filter/Filte';
+import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
@@ -16,12 +18,23 @@ export class App extends Component {
   addContact = e => {
     e.preventDefault();
     const { name, number } = e.currentTarget;
+    const { contacts } = this.state;
+
+    if (contacts.some(contact => contact.name === name.value)) {
+      return alert(`${name.value} is already in contacts`);
+    }
 
     this.setState(({ contacts }) => ({
       contacts: [
         ...contacts,
         { name: name.value, id: nanoid(), number: number.value },
       ],
+    }));
+  };
+
+  deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
@@ -47,15 +60,12 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <br />
-        <input type="text" name="filter" onChange={this.onFilter} />
+        <Filter onFilter={this.onFilter} />
         <h2>Contacts</h2>
-        <ul>
-          {filteredContacts.map(contact => (
-            <li key={contact.id}>
-              {contact.name}: {contact.number}
-            </li>
-          ))}
-        </ul>
+        <ContactList
+          filteredContacts={filteredContacts}
+          onDelete={this.deleteContact}
+        />
       </div>
     );
   }
