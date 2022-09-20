@@ -1,10 +1,18 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StyledForm, ContactFormLabel } from './ContactForm.styled';
+import { Input, Button } from '../Common.styled';
 
 export class ContactForm extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',
   };
+
   onInputChange = e => {
     const { name, value } = e.currentTarget;
 
@@ -18,15 +26,15 @@ export class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form
+      <StyledForm
         onSubmit={e => {
           this.props.onSubmit(e);
           this.resetForm();
         }}
       >
-        <label>
-          Name
-          <input
+        <ContactFormLabel>
+          Name:
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,11 +43,11 @@ export class ContactForm extends Component {
             value={name}
             onChange={this.onInputChange}
           />
-        </label>
-        <br />
-        <label>
-          Number
-          <input
+        </ContactFormLabel>
+
+        <ContactFormLabel>
+          Number:
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -48,10 +56,9 @@ export class ContactForm extends Component {
             value={number}
             onChange={this.onInputChange}
           />
-        </label>
-        <br />
-        <button type="submit">Add contact</button>
-      </form>
+        </ContactFormLabel>
+        <Button type="submit">Add contact</Button>
+      </StyledForm>
     );
   }
 }

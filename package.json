@@ -38,6 +38,9 @@
     ]
   },
   "devDependencies": {
-    "nanoid": "^4.0.0"
+    "nanoid": "^4.0.0",
+    "prop-types": "^15.8.1",
+    "styled-components": "^5.3.5",
+    "styled-system": "^5.1.5"
   }
 }
