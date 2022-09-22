@@ -5,7 +5,7 @@ export const Container = styled.main`
   margin-left: auto;
   margin-right: auto;
   width: 1280px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: 45px;
@@ -30,7 +30,7 @@ export const Content = styled.div`
   padding-left: 56px;
   padding-right: 16px;
   line-height: 25px;
-  font-family: 'Dancing Script', cursive;
+  font-family: cursive;
   font-size: 19px;
   letter-spacing: 1px;
   word-spacing: 5px;
@@ -43,7 +43,7 @@ export const MainHeading = styled.h1`
 `;
 
 export const Button = styled.button`
-  font-family: 'Dancing Script', cursive;
+  font-family: cursive;
   width: 100px;
   background-color: #f4bc56;
   color: #010101;
@@ -64,7 +64,7 @@ export const Button = styled.button`
 
 export const Input = styled.input`
   color: #f0a00c;
-  font-family: 'Dancing Script', cursive;
+  font-family: cursive;
   border: 1px solid black;
   padding-top: 2px;
   padding-bottom: 2px;

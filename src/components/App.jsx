@@ -1,9 +1,22 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { Container, MainHeading, Content } from './Common.styled';
+
+Notify.init({
+  position: 'center-top',
+  width: '460px',
+  useIcon: false,
+  fontFamily: 'Garamond',
+  fontSize: '28px',
+  failure: {
+    background: 'transparent',
+    textColor: '#ac3235',
+  },
+});
 
 export class App extends Component {
   state = {
@@ -16,20 +29,16 @@ export class App extends Component {
     filter: '',
   };
 
-  addContact = e => {
-    e.preventDefault();
-    const { name, number } = e.currentTarget;
+  addContact = values => {
     const { contacts } = this.state;
+    const { name, number } = values;
 
-    if (contacts.some(contact => contact.name === name.value)) {
-      return alert(`${name.value} is already in contacts`);
+    if (contacts.some(contact => contact.name === name)) {
+      return Notify.failure(`${name} is already in contacts`);
     }
 
     this.setState(({ contacts }) => ({
-      contacts: [
-        ...contacts,
-        { name: name.value, id: nanoid(), number: number.value },
-      ],
+      contacts: [...contacts, { name: name, id: nanoid(), number: number }],
     }));
   };
 
@@ -40,7 +49,7 @@ export class App extends Component {
   };
 
   onFilter = e => {
-    this.setState({ filter: e.currentTarget.value.toLowerCase() });
+    this.setState({ filter: e.currentTarget.value.toLowerCase().trim() });
   };
 
   render() {
