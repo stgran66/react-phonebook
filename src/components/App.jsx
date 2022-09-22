@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
+import { isEqual } from 'lodash';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
@@ -18,6 +19,8 @@ Notify.init({
   },
 });
 
+const LS_KEY = 'saved_contacts';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -28,6 +31,20 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(LS_KEY);
+    const parsedSavedContacts = JSON.parse(savedContacts);
+
+    if (parsedSavedContacts) {
+      this.setState({ contacts: parsedSavedContacts });
+    }
+  }
+  componentDidUpdate(prevState) {
+    if (!isEqual(prevState.contacts, this.state.contacts)) {
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+    }
+  }
 
   addContact = values => {
     const { contacts } = this.state;
