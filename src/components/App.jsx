@@ -1,11 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { Container, MainHeading, Content } from './Common.styled';
-import { useEffect } from 'react';
 
 Notify.init({
   position: 'center-top',
