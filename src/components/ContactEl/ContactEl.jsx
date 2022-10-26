@@ -19,7 +19,9 @@ export const ContactEl = ({ contact, onDelete }) => {
   );
 };
 
+/*
 ContactEl.propTypes = {
   contact: PropTypes.objectOf(PropTypes.string).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
+*/
