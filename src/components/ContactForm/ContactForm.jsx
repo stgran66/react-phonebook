@@ -1,8 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Notify } from 'notiflix';
 import { addContact } from 'redux/contactsSlice';
-import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 
 import {

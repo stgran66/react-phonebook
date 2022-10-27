@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
+import { getFilter } from 'redux/selectors';
 import { deleteContact } from 'redux/contactsSlice';
 import { ContactEl } from '../ContactEl/ContactEl';
 import { StyledContactList } from './ContactList.styled';
-import { getFilter } from 'redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -21,7 +21,7 @@ export const ContactList = () => {
           contact={contact}
           key={contact.id}
           onDelete={() => dispatch(deleteContact(contact.id))}
-        ></ContactEl>
+        />
       ))}
     </StyledContactList>
   );
