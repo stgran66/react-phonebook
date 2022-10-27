@@ -46,7 +46,7 @@ export const ContactForm = () => {
   const HandleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
 
-    if (contacts.some(contact => contact.name === name)) {
+    if (contacts.some(contact => contact?.name === name)) {
       return Notify.failure(`${name} is already in contacts`);
     }
 
