@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { StyledContactElContainer, DeleteButton } from './ContactEl.Styled';
+import { StyledContainer, DeleteButton } from './Contact.Styled';
 
-export const ContactEl = ({ contact, onDelete }) => {
+export const Contact = ({ contact, onDelete }) => {
   return (
     <li>
-      <StyledContactElContainer>
+      <StyledContainer>
         {contact.name}: {contact.number}
         <DeleteButton
           type="button"
@@ -14,12 +14,12 @@ export const ContactEl = ({ contact, onDelete }) => {
         >
           Delete
         </DeleteButton>
-      </StyledContactElContainer>
+      </StyledContainer>
     </li>
   );
 };
 
-ContactEl.propTypes = {
+Contact.propTypes = {
   contact: PropTypes.objectOf(PropTypes.string).isRequired,
   onDelete: PropTypes.func.isRequired,
 };

@@ -4,7 +4,6 @@ import * as yup from 'yup';
 import { Notify } from 'notiflix';
 import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
-
 import {
   StyledForm,
   ContactFormLabel,
@@ -17,6 +16,19 @@ const initialValues = {
   name: '',
   number: '',
 };
+
+Notify.init({
+  position: 'center-top',
+
+  width: '460px',
+  useIcon: false,
+  fontFamily: 'Garamond',
+  fontSize: '28px',
+  failure: {
+    background: 'transparent',
+    textColor: '#ac3235',
+  },
+});
 
 const nameRegex = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 const numberRegex =

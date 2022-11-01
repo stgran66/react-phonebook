@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledContactElContainer = styled.div`
+export const StyledContainer = styled.div`
   width: 410px;
   display: flex;
   justify-content: space-between;
@@ -18,6 +18,8 @@ export const DeleteButton = styled.button`
 
   outline: none;
   border-radius: 6px;
+
+  cursor: pointer;
 
   :hover,
   :focus {
