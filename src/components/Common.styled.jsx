@@ -80,3 +80,7 @@ export const Input = styled.input`
     border-color: #f0a00c;
   }
 `;
+
+export const MessageContainer = styled.div`
+  height: 25px;
+`;

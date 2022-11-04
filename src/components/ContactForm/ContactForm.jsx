@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Notify } from 'notiflix';
-import { addContact } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 import {
   StyledForm,
   ContactFormLabel,
@@ -53,17 +53,15 @@ const schema = yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const HandleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-
     if (contacts.some(contact => contact?.name === name)) {
       return Notify.failure(`${name} is already in contacts`);
     }
-
     resetForm();
-    dispatch(addContact(name, number));
+    dispatch(addContact({ name, number }));
   };
   return (
     <Formik
