@@ -5,6 +5,9 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const DeleteButton = styled.button`
@@ -26,5 +29,11 @@ export const DeleteButton = styled.button`
     border-color: #f0a00c;
     background-color: #f0a00c;
     color: #ffffff;
+  }
+`;
+
+export const StyledNumber = styled.span`
+  @media screen and (max-width: 767px) {
+    flex-basis: 80%;
   }
 `;

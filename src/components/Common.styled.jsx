@@ -14,6 +14,13 @@ export const Container = styled.main`
   background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
   box-shadow: 0px 0px 5px 0px #888;
 
+  @media screen and (max-width: 1279px) {
+    width: 768px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 480px;
+  }
+
   ::before {
     content: '';
     width: 2px;

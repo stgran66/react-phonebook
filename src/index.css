@@ -18,7 +18,11 @@ code {
 
 .nx-message {
   position: absolute;
-  width: 480px;
-  top: 110px;
-  left: 200px;
+  left: 100px;
+  @media and screen(max-width:1279px) {
+    position: absolute;
+    width: 480px;
+    top: 110px;
+    left: 200px;
+  }
 }
