@@ -5,9 +5,10 @@ export const Container = styled.main`
   margin-left: auto;
   margin-right: auto;
   width: 1280px;
-  min-height: 100vh;
+  padding: 0 60px;
+  /* min-height: 100vh; */
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   padding-top: 45px;
   padding-bottom: 50px;
   background-color: white;
@@ -33,6 +34,7 @@ export const Container = styled.main`
 `;
 
 export const Content = styled.div`
+  margin-top: 48px;
   padding-top: 6px;
   padding-left: 56px;
   padding-right: 16px;
@@ -45,6 +47,7 @@ export const Content = styled.div`
 
 export const MainHeading = styled.h1`
   font-size: 32px;
+  font-family: cursive;
   text-transform: uppercase;
   margin-bottom: 28px;
 `;
@@ -62,6 +65,7 @@ export const Button = styled.button`
   border-radius: 6px;
 
   cursor: pointer;
+  z-index: 100;
 
   :hover,
   :focus {
