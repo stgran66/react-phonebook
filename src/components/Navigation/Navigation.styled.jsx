@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import pin from '../../images/round-pushpin.png';
+
 export const StyledNav = styled.nav`
   display: flex;
   gap: 30px;

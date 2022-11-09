@@ -1,5 +1,5 @@
-import { Form, Field, ErrorMessage } from 'formik';
 import styled from 'styled-components';
+import { Form, Field, ErrorMessage } from 'formik';
 
 export const StyledForm = styled(Form)`
   margin-top: 26px;

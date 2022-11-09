@@ -28,7 +28,6 @@ export const LoginForm = () => {
 
   const HandleSubmit = (values, { resetForm }) => {
     dispatch(logIn(values));
-    resetForm();
   };
   return (
     <Formik

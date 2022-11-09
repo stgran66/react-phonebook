@@ -19,7 +19,7 @@ const initialValues = {
 const schema = yup.object().shape({
   name: yup
     .string()
-    .matches(/^[a-zA-ZÀ-ÖÙ-öù-ÿĀ-žḀ-ỿ0-9\s\-\/.]+$/, 'Please enter valid name')
+    .matches(/^[a-zA-ZÀ-ÖÙ-öù-ÿĀ-žḀ-ỿ0-9\s\-.]+$/, 'Please enter valid name')
     .required(),
   email: yup.string().email('Please enter valid email').required(),
   password: yup
@@ -36,32 +36,34 @@ export const RegisterForm = () => {
     resetForm();
   };
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={HandleSubmit}
-      validationSchema={schema}
-      validateOnChange={false}
-      validateOnBlur={true}
-    >
-      <StyledForm>
-        <ContactFormLabel>
-          Name:
-          <ContactFormInput type="text" name="name" />
-        </ContactFormLabel>
-        <StyledErrorMsg name="name" component="p" />
-        <ContactFormLabel>
-          Email:
-          <ContactFormInput type="email" name="email" />
-        </ContactFormLabel>
-        <StyledErrorMsg name="email" component="p" />
+    <>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={HandleSubmit}
+        validationSchema={schema}
+        validateOnChange={false}
+        validateOnBlur={true}
+      >
+        <StyledForm>
+          <ContactFormLabel>
+            Name:
+            <ContactFormInput type="text" name="name" />
+          </ContactFormLabel>
+          <StyledErrorMsg name="name" component="p" />
+          <ContactFormLabel>
+            Email:
+            <ContactFormInput type="email" name="email" />
+          </ContactFormLabel>
+          <StyledErrorMsg name="email" component="p" />
 
-        <ContactFormLabel>
-          Password:
-          <ContactFormInput type="password" name="password" />
-        </ContactFormLabel>
-        <StyledErrorMsg name="password" component="p" />
-        <Button type="submit">Register</Button>
-      </StyledForm>
-    </Formik>
+          <ContactFormLabel>
+            Password:
+            <ContactFormInput type="password" name="password" />
+          </ContactFormLabel>
+          <StyledErrorMsg name="password" component="p" />
+          <Button type="submit">Register</Button>
+        </StyledForm>
+      </Formik>
+    </>
   );
 };
