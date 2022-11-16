@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "react-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stgran.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://stgran.github.io/react-phonebook/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.3",
