@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_phonebook=self.webpackChunkreact_phonebook||[]).push([[415],{5415:function(e,n,o){o.r(n),o.d(n,{default:function(){return r}});var c=o(6321),t=o(184);function r(){return(0,t.jsx)(c.VY,{children:(0,t.jsx)(c.NM,{children:"Welcome to your contact book :)"})})}}}]);
+//# sourceMappingURL=415.24632c9c.chunk.js.map
